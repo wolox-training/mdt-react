@@ -4,82 +4,101 @@
 
 <head>
   <title>My first web page</title>
-  <!-- This is a comment, by the way -->
+  <link rel="stylesheet" type="text/css" href="../css/styles.css" />
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Ubuntu" />
 </head>
 
 <body>
+  <div class="container">
+    <header>
+      <h1>My first web page</h1>
+    </header>
 
-  <h1>My first web page</h1>
+    <div name="what">
+      <h2>What this is</h2>
+      <p>A simple page put together using HTML. <em>I said a simple page put together using HTML.</em> A
+        simple page put
+        together using HTML. A simple page put together using HTML. A simple page put together using HTML. A simple
+        page
+        put together using HTML. A simple page put together using HTML. A simple page put together using HTML. A simple
+        page put together using HTML.</p>
+    </div>
 
-  <h2>What this is</h2>
-  <p>A simple page put together using HTML. <em>I said a simple page put together using HTML.</em> A simple page put
-    together using HTML. A simple page put together using HTML. A simple page put together using HTML. A simple page
-    put together using HTML. A simple page put together using HTML. A simple page put together using HTML. A simple
-    page put together using HTML.</p>
+    <div name="why">
+      <h2>Why this is</h2>
+      <ul>
+        <li>To learn HTML</li>
+        <li>
+          To show off
+          <ol>
+            <li>To my boss</li>
+            <li>To my friends</li>
+            <li>To my cat</li>
+            <li>To the little talking duck in my brain</li>
+          </ol>
+        </li>
+        <li>Because I have fallen in love with my computer and want to give her some HTML loving.</li>
+      </ul>
+    </div>
 
-  <h2>Why this is</h2>
-  <ul>
-    <li>To learn HTML</li>
-    <li>
-      To show off
-      <ol>
-        <li>To my boss</li>
-        <li>To my friends</li>
-        <li>To my cat</li>
-        <li>To the little talking duck in my brain</li>
-      </ol>
-    </li>
-    <li>Because I have fallen in love with my computer and want to give her some HTML loving.</li>
-  </ul>
+    <h2>Where to find the tutorial</h2>
 
-  <h2>Where to find the tutorial</h2>
-  <p><a href="http://www.htmldog.com"><img src="http://www.htmldog.com/badge1.gif" width="120" height="90" alt="HTML Dog"></a></p>
+    <div class="clearfix">
+      <p>
+        <a href="http://www.htmldog.com"><img src="http://www.htmldog.com/badge1.gif" alt="HTML Dog"></a>
+        <em>Click the image for go to the tutorial.</em>
+      </p>
+    </div>
 
-  <h3>Some random table</h3>
-  <table>
-    <tr>
-      <td>Row 1, cell 1</td>
-      <td>Row 1, cell 2</td>
-      <td>Row 1, cell 3</td>
-    </tr>
-    <tr>
-      <td>Row 2, cell 1</td>
-      <td>Row 2, cell 2</td>
-      <td>Row 2, cell 3</td>
-    </tr>
-    <tr>
-      <td>Row 3, cell 1</td>
-      <td>Row 3, cell 2</td>
-      <td>Row 3, cell 3</td>
-    </tr>
-    <tr>
-      <td>Row 4, cell 1</td>
-      <td>Row 4, cell 2</td>
-      <td>Row 4, cell 3</td>
-    </tr>
-  </table>
+    <h3>Some random table</h3>
+    <table>
+      <tr>
+        <td>Row 1, cell 1</td>
+        <td>Row 1, cell 2</td>
+        <td>Row 1, cell 3</td>
+      </tr>
+      <tr>
+        <td>Row 2, cell 1</td>
+        <td>Row 2, cell 2</td>
+        <td>Row 2, cell 3</td>
+      </tr>
+      <tr>
+        <td>Row 3, cell 1</td>
+        <td>Row 3, cell 2</td>
+        <td>Row 3, cell 3</td>
+      </tr>
+      <tr>
+        <td>Row 4, cell 1</td>
+        <td>Row 4, cell 2</td>
+        <td>Row 4, cell 3</td>
+      </tr>
+    </table>
 
-  <h3>Some random form</h3>
-  <p><strong>Note:</strong> It looks the part, but won't do a damned thing.</p>
+    <h3>Some random form</h3>
+    <p><strong>Note:</strong> It looks the part, but won't do a damned thing.</p>
 
-  <form action="somescript.php" method="post">
+    <form action="somescript.php" method="post">
 
-    <p>Name:</p>
-    <p><input name="name" value="Your name"></p>
+      <p>Name:</p>
+      <p><input name="name" value="Your name"></p>
 
-    <p>Comments: </p>
-    <p><textarea rows="10" cols="20" name="comments">Your comments</textarea></p>
+      <p>Comments: </p>
+      <p><textarea rows="10" cols="20" name="comments">Your comments</textarea></p>
 
-    <p>Are you:</p>
-    <p><input type="radio" name="areyou" value="male"> Male</p>
-    <p><input type="radio" name="areyou" value="female"> Female</p>
-    <p><input type="radio" name="areyou" value="hermaphrodite"> An hermaphrodite</p>
-    <p><input type="radio" name="areyou" value="asexual" checked> Asexual</p>
+      <p>Are you:</p>
+      <p><input type="radio" name="areyou" value="male"> Male</p>
+      <p><input type="radio" name="areyou" value="female"> Female</p>
+      <p><input type="radio" name="areyou" value="hermaphrodite"> An hermaphrodite</p>
+      <p><input type="radio" name="areyou" value="asexual" checked> Asexual</p>
 
-    <p><input type="submit"></p>
+      <p><input type="submit"></p>
 
-  </form>
+    </form>
 
+    <footer>
+      <em>Developed by Manuel Tuero</em>
+    </footer>
+  </div>
 </body>
 
 </html>
