@@ -1,0 +1,48 @@
+.tech-border {
+  border: 1px solid $earls-green;
+  border-radius: 5px;
+  height: 300px;
+  width: 200px;
+}
+
+.tech-content {
+  background-color: $earls-green;
+  left: 10px;
+  font-family: 'Roboto', sans-serif;
+  position: relative;
+  top: 10px;
+}
+
+.tech-logo {
+  height: 100px;
+  left: 25%;
+  position: absolute;
+  top: 5%;
+  width: 100px;
+}
+
+.tech-name {
+  left: 36%;
+  position: absolute;
+  top: 40%;
+}
+
+.tech-relase {
+  left: 28%;
+  font-weight: bold;
+  position: absolute;
+  top: 48%;
+}
+
+.tech-desc {
+  font-size: 12px;
+  left: 15%;
+  position: absolute;
+  top: 60%;
+  text-align: center;
+  width: 130px;
+}
+
+.m-left-10 {
+  margin: 10px;
+}
