@@ -8,13 +8,16 @@
   height: 300px;
   justify-content: space-around;
   width: 200px;
+  position: relative;
 
   &::before {
     border: 1px solid $earls-green;
     border-radius: 5px;
     content: '';
     height: inherit;
+    left: -10px;
     position: absolute;
+    top: -10px;
     width: inherit;
   }
 
