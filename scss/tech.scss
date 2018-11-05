@@ -1,27 +1,25 @@
 .tech {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-  justify-content: space-around;
+  align-items: center;
   background-color: $earls-green;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
   font-family: 'Roboto', sans-serif;
   height: 300px;
+  justify-content: space-around;
   width: 200px;
-  border-radius: 5px;
-  align-items: center;
-  padding: 0 10px 10px 0;
 
   &::before {
-    content: ' ';
-    position: absolute;
     border: 1px solid $earls-green;
     border-radius: 5px;
-    width: inherit;
+    content: '';
     height: inherit;
+    position: absolute;
+    width: inherit;
   }
 
   .tech-name {
-    font-size: 18px;
+    font-size: $text-medium;
   }
 
   .tech-relase {
@@ -29,12 +27,12 @@
   }
 
   .tech-logo {
-    height: 100px;
-    width: 100px;
+    height: $tech-logo-size;
+    width: $tech-logo-size;
   }
 
   .tech-desc {
+    font-size: $text-medium;
     text-align: center;
-    font-size: 15px;
   }
 }

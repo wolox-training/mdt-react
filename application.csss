@@ -1,0 +1,130 @@
+* {
+  box-sizing: border-box;
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0; }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span,
+label,
+input,
+a,
+button,
+select,
+textarea {
+  color: #000;
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: normal;
+  margin: 0; }
+  h1:focus,
+  h2:focus,
+  h3:focus,
+  h4:focus,
+  h5:focus,
+  h6:focus,
+  p:focus,
+  span:focus,
+  label:focus,
+  input:focus,
+  a:focus,
+  button:focus,
+  select:focus,
+  textarea:focus {
+    outline: none; }
+
+select {
+  -moz-appearance: none;
+  -webkit-appearance: none; }
+
+table {
+  border-collapse: collapse;
+  table-layout: fixed; }
+
+input,
+select,
+textarea,
+button {
+  border: 0;
+  border-radius: 0; }
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0; }
+
+button {
+  background: transparent;
+  cursor: pointer; }
+
+button::-moz-focus-inner {
+  border: 0; }
+
+a {
+  cursor: pointer;
+  text-decoration: none; }
+  a:focus, a:active, a:hover {
+    color: #000;
+    text-decoration: none; }
+
+ul,
+li {
+  list-style-type: none;
+  margin: 0;
+  padding: 0; }
+
+::placeholder {
+  color: #999;
+  opacity: 1; }
+
+.title {
+  font-family: 'Roboto', sans-serif;
+  font-size: 24px;
+  position: relative;
+  padding: 38px 0 0 52px; }
+  .title::before {
+    background: url("assets/triangle.svg") no-repeat;
+    content: '';
+    height: 90px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 70px;
+    z-index: -1; }
+
+.tech {
+  align-items: center;
+  background-color: #BED23C;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Roboto', sans-serif;
+  height: 300px;
+  justify-content: space-around;
+  width: 200px; }
+  .tech::before {
+    border: 1px solid #BED23C;
+    border-radius: 5px;
+    content: '';
+    height: inherit;
+    position: absolute;
+    width: inherit; }
+  .tech .tech-name {
+    font-size: 16px; }
+  .tech .tech-relase {
+    font-weight: bold; }
+  .tech .tech-logo {
+    height: 100px;
+    width: 100px; }
+  .tech .tech-desc {
+    font-size: 16px;
+    text-align: center; }
+
+/*# sourceMappingURL=application.csss.map */
