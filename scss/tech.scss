@@ -1,6 +1,6 @@
 .tech {
   align-items: center;
-  background-color: $earls-green;
+  background-color: $green;
   border-radius: 5px;
   display: flex;
   flex-direction: column;
@@ -11,7 +11,7 @@
   position: relative;
 
   &::before {
-    border: 1px solid $earls-green;
+    border: 1px solid $green;
     border-radius: 5px;
     content: '';
     height: inherit;
