@@ -19,13 +19,14 @@
     position: absolute;
     top: -10px;
     width: inherit;
+    z-index: -1;
   }
 
   .tech-name {
     font-size: $text-medium;
   }
 
-  .tech-relase {
+  .tech-release {
     font-weight: bold;
   }
 
@@ -38,4 +39,8 @@
     font-size: $text-medium;
     text-align: center;
   }
+}
+
+.tech-container .tech {
+  margin: 15px;
 }
