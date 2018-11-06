@@ -9,7 +9,6 @@
   justify-content: space-around;
   width: 200px;
   position: relative;
-  transition: position 1s ease;
 
   &::before {
     border: 1px solid $green;
@@ -40,4 +39,8 @@
     font-size: $text-medium;
     text-align: center;
   }
+}
+
+.tech-container .tech {
+  margin: 15px;
 }
