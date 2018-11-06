@@ -9,6 +9,7 @@
   justify-content: space-around;
   width: 200px;
   position: relative;
+  transition: position 1s ease;
 
   &::before {
     border: 1px solid $green;
