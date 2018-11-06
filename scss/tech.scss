@@ -19,7 +19,13 @@
     position: absolute;
     top: -10px;
     width: inherit;
+    transition: top 0.5s, left 0.5s;
     z-index: -1;
+  }
+
+  &:hover::before {
+    top: 10px;
+    left: 10px;
   }
 
   .tech-name {
