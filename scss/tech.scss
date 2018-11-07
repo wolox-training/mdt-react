@@ -1,7 +1,7 @@
 .tech-container {
   display: grid;
-  grid-template-columns: 200px 200px 200px;
-  grid-template-rows: 300px 300px;
+  grid-template-columns: repeat(3, 200px);
+  grid-template-rows: repeat(2, 300px);
   padding-left: 20px;
   font-family: 'Roboto', sans-serif;
   justify-content: center;
@@ -41,29 +41,30 @@
   align-items: center;
   display: flex;
   flex-direction: column;
-  justify-content: center; 
+  justify-content: center;
   position: relative;
   width: 200px;
 
   .tech-name {
     font-size: $text-medium;
-    margin-bottom: 10px;
   }
 
   .tech-release {
     font-weight: bold;
-    margin-bottom: 10px;
   }
 
   .tech-logo {
     height: $tech-logo-size;
     width: $tech-logo-size;
-    margin-bottom: 10px;
   }
 
   .tech-desc {
     font-size: $text-medium;
     text-align: center;
+  }
+
+  .tech-name, .tech-release, .tech-logo {
+    margin-bottom: 10px;
   }
 }
 
