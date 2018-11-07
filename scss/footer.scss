@@ -3,25 +3,22 @@
   background-color: $blue;
   display: flex;
   flex-direction: column;
-  height: 100%;
   padding: 30px;
   position: relative;
 
-  &::before {
-    content: url('assets/wolox_logo_white.svg');
+  .footer-logo {
     position: relative;
-    padding: 10px;
+    margin-top: 20px;
   }
 
-  &::after {
-    content: 'Copyright 2018. Wolox. All rights reserved.';
-    color: white;
+  .footer-copyright {
+    color: $white;
     font-size: $text-small;
     align-self: flex-end;
   }
 
   .footer-text {
-    color: white;
+    color: $white;
     font-size: $text-big;
   }
 }
