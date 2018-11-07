@@ -8,7 +8,6 @@ $nav-logo-height: 30px;
   display: flex;
   height: $nav-height;
   justify-content: space-between;
-  min-width: 100%;
   position: fixed;
   top: 0;
   width: 100%;
@@ -16,12 +15,12 @@ $nav-logo-height: 30px;
 
   .navbar-logo {
     height: $nav-logo-height;
-    padding-left: 30px; 
+    padding: 0 30px;
   }
 
   .navbar-text {
     font-size: $title-decoration-size;
     height: $nav-logo-height;
-    padding-right: 30px;
+    padding: 0 30px;
   }
 }
