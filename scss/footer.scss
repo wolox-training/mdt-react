@@ -1,0 +1,25 @@
+.footer {
+  align-items: center;
+  background-color: $blue;
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+  position: relative;
+
+  .footer-logo {
+    position: relative;
+    margin-bottom: 20px;
+  }
+
+  .footer-copyright {
+    color: $white;
+    font-size: $text-small;
+    align-self: flex-end;
+  }
+
+  .footer-text {
+    color: $white;
+    font-size: $text-big;
+    margin-bottom: 20px;
+  }
+}
