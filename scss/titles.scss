@@ -8,6 +8,13 @@ $title-decoration-size: 24px;
   position: relative;
   padding: 38px 0 0 52px;
 
+  @media only screen and (max-width: 1024px) {
+    & {
+      position: relative;
+      left: 40px;
+    }
+  }
+
   &::before {
     background: url('assets/triangle.svg') no-repeat;
     content: '';
