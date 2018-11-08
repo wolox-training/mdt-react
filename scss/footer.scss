@@ -21,6 +21,12 @@
     color: $white;
     font-size: $text-small;
     align-self: flex-end;
+
+    @media only screen and (max-width: 1024px) {
+      & {
+        align-self: center;
+      }
+    }
   }
 
   .footer-text {
