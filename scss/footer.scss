@@ -9,35 +9,31 @@
   .footer-logo {
     position: relative;
     margin-bottom: 20px;
-
-    @media only screen and (max-width: 1024px) {
-      & {
-        width: 100%;
-      }
-    }
   }
 
   .footer-copyright {
     color: $white;
     font-size: $text-small;
     align-self: flex-end;
-
-    @media only screen and (max-width: 1024px) {
-      & {
-        align-self: center;
-      }
-    }
   }
 
   .footer-text {
     color: $white;
     font-size: $text-big;
     margin-bottom: 20px;
+  }
+}
 
-    @media only screen and (max-width: 1024px) {
-      & {
-        text-align: center;
-      }
-    }
+@media only screen and (max-width: 1024px) {
+  .footer-logo {
+    width: 100%;
+  }
+
+  .footer-copyright {
+    align-self: center;
+  }
+
+  .footer-text {
+    text-align: center;
   }
 }
