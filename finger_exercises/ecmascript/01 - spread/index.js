@@ -1,10 +1,7 @@
 import { isArray } from './utils';
 
-export function min(value) {
-  if (!isArray(value)) {
-    return value;
-  }
-  return Math.min(...value);
+export function min(args) {
+  return isArray(args) ? Math.min(...args) : Math.min(...arguments);
 }
 
 export function copy() {
