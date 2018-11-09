@@ -1,8 +1,9 @@
 import { isArray } from './utils';
 
-export function min() {
-  isArray();
-  return Math.min();
+const num = 1;
+
+export function min(num) {
+  return Math.min(num);
 }
 
 export function copy() {
