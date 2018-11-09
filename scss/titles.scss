@@ -22,7 +22,6 @@ $title-decoration-size: 24px;
 
 @media only screen and (max-width: 1024px) {
   .title {
-    position: relative;
-    left: 40px;
+    margin-left: 50px;
   }
 }
