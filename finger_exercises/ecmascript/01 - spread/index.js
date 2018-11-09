@@ -1,9 +1,10 @@
 import { isArray } from './utils';
 
-const num = 1;
-
-export function min(num) {
-  return Math.min(num);
+export function min(value) {
+  if (!isArray(value)) {
+    return value;
+  }
+  return Math.min(...value);
 }
 
 export function copy() {
