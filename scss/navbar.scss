@@ -23,3 +23,9 @@ $nav-logo-height: 30px;
     height: $nav-logo-height;
   }
 }
+
+@media only screen and (max-width: 1024px) {
+  & {
+    display: none;
+  }
+}
