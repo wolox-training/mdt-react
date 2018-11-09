@@ -8,3 +8,5 @@ export function min(args) {
 }
 
 export const copy = obj => (isArray(obj) ? [...obj] : { ...obj });
+
+export const reverseMerge = (arr1, arr2) => [...arr2, ...arr1];
