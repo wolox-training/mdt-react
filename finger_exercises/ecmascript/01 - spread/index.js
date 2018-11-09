@@ -7,4 +7,4 @@ export function min(args) {
   return isArray(args) ? Math.min(...args) : Math.min(...arguments);
 }
 
-export const copy = obj => ({ ...obj });
+export const copy = obj => (isArray(obj) ? [...obj] : { ...obj });
