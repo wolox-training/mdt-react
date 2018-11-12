@@ -1,9 +1,0 @@
-// This have a linter problem, it says that we should prefer
-// export default
-// Would you like to fix this issue ?
-
-export function isArray(aPossibleArray) {
-  return !aPossibleArray ? aPossibleArray : aPossibleArray.constructor === Array;
-}
-
-export default isArray;

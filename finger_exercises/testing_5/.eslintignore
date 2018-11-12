@@ -1,6 +1,0 @@
-get_static.js
-get_version.js
-scripts/*
-config/*
-src/config/rollbar.js
-src/config/hotjar.js
