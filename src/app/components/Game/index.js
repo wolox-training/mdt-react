@@ -2,13 +2,13 @@ import React, { Component } from 'react';
 
 import Board from '../Board';
 
-import styles from './styles.css';
+import './styles.css';
 
 class Game extends Component {
   render() {
     return (
-      <div className={styles.game}>
-        <div className={styles.gameInfo}>
+      <div className={'game'}>
+        <div className={'game-info'}>
           <Board />
           <div>{/* status */}</div>
           <ol>{/* TODO */}</ol>
