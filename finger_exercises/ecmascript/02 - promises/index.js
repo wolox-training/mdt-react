@@ -11,6 +11,6 @@ export function delay(time) {
   }), Date.now());
 }
 
-export function asyncDelay() {
-
+export async function asyncDelay(time) {
+  return new Promise(async resolve => resolve(time), Date.now());
 }
