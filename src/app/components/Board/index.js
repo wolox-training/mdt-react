@@ -5,8 +5,17 @@ import Square from '../Square';
 import './styles.css';
 
 class Board extends Component {
-  // eslint-disable-next-line no-unused-vars
-  renderSquare = i => <Square value={i} />;
+  state = {
+    squares: Array(9).fill(null)
+  };
+
+  handleClick(i) {
+    const squares = this.state.squares.slice();
+    squares[i] = 'X';
+    this.setState({ squares });
+  }
+
+  renderSquare = i => <Square value={this.state.squares[i]} onClick={() => this.handleClick(i)} />;
 
   render() {
     const status = 'Next player: X';

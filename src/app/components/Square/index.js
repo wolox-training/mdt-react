@@ -1,16 +1,19 @@
+/* eslint-disable react/prop-types */
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 import './styles.css';
 
 class Square extends Component {
-  state = {
-    value: null
+  static PropTypes = {
+    value: PropTypes.string,
+    onClick: PropTypes.func
   };
 
   render() {
     return (
-      <button className={'square'} onClick={() => this.setState({ value: 'X' })}>
-        {this.state.value}
+      <button className={'square'} onClick={this.props.onClick}>
+        {this.props.value}
       </button>
     );
   }
