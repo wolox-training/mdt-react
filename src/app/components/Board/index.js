@@ -6,7 +6,7 @@ import './styles.css';
 
 class Board extends Component {
   // eslint-disable-next-line no-unused-vars
-  renderSquare = i => <Square />;
+  renderSquare = i => <Square value={i} />;
 
   render() {
     const status = 'Next player: X';
