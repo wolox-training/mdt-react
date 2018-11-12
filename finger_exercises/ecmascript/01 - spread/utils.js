@@ -2,8 +2,6 @@
 // export default
 // Would you like to fix this issue ?
 
-export function isArray(aPossibleArray) {
-  return !aPossibleArray ? aPossibleArray : aPossibleArray.constructor === Array;
-}
+// eslint-disable-next-line import/prefer-default-export
+export const isArray = aPossibleArray => aPossibleArray && Array.isArray(aPossibleArray);
 
-export default isArray;
