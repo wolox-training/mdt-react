@@ -1,9 +1,4 @@
 // This have a linter problem, it says that we should prefer
 // export default
 // Would you like to fix this issue ?
-
-export function isArray(aPossibleArray) {
-  return aPossibleArray.constructor === Array;
-}
-
-export default isArray;
+export default aPossibleArray => aPossibleArray && Array.isArray(aPossibleArray);
