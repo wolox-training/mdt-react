@@ -1,5 +1,5 @@
 /* eslint-disable curly */
-import { isArray } from './utils';
+import isArray from './utils';
 
 export function min(args) {
   if (!args)
