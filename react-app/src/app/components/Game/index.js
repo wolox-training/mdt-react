@@ -1,3 +1,4 @@
+/* eslint-disable react/no-array-index-key */
 /* eslint-disable react/jsx-key */
 /* eslint-disable no-use-before-define */
 import React, { Component } from 'react';
@@ -9,7 +10,8 @@ import './styles.css';
 class Game extends Component {
   state = {
     history: [{ squares: Array(9).fill(null) }],
-    xIsNext: true
+    xIsNext: true,
+    stepNumber: 0
   };
 
   handleClick(i) {
@@ -21,6 +23,13 @@ class Game extends Component {
     this.setState({
       history: history.concat([{ squares }]),
       xIsNext: !this.state.xIsNext
+    });
+  }
+
+  jumpTo(step) {
+    this.setState({
+      stepNumber: step,
+      xIsNext: step % 2 === 0
     });
   }
 
@@ -39,7 +48,7 @@ class Game extends Component {
     const moves = history.map((step, move) => {
       const desc = move ? `Go to move # ${move}` : `Go to game start`;
       return (
-        <li>
+        <li key={move}>
           <button onClick={() => this.jumpTo(move)}>{desc}</button>
         </li>
       );
