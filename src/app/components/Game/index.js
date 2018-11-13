@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-key */
 /* eslint-disable no-use-before-define */
 import React, { Component } from 'react';
 
@@ -35,12 +36,21 @@ class Game extends Component {
       status = `Next player: ${this.state.xIsNext ? 'X' : 'O'}`;
     }
 
+    const moves = history.map((step, move) => {
+      const desc = move ? `Go to move # ${move}` : `Go to game start`;
+      return (
+        <li>
+          <button onClick={() => this.jumpTo(move)}>{desc}</button>
+        </li>
+      );
+    });
+
     return (
       <div className={'game'}>
         <div className={'game-info'}>
           <Board squares={current.squares} onClick={i => this.handleClick(i)} />
           <div>{status}</div>
-          <ol>{/* TODO */}</ol>
+          <ol>{moves}</ol>
         </div>
       </div>
     );
