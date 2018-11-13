@@ -1,3 +1,4 @@
+/* eslint-disable no-use-before-define */
 import React, { Component } from 'react';
 
 import Square from '../Square';
@@ -12,6 +13,7 @@ class Board extends Component {
 
   handleClick(i) {
     const squares = this.state.squares.slice();
+    if (calculateWinner(squares) || squares[i]) return;
     squares[i] = this.state.xIsNext ? 'X' : 'O';
     this.setState({
       squares, // shorthand
@@ -22,7 +24,6 @@ class Board extends Component {
   renderSquare = i => <Square value={this.state.squares[i]} onClick={() => this.handleClick(i)} />;
 
   render() {
-    // eslint-disable-next-line no-use-before-define
     const winner = calculateWinner(this.state.squares);
     let status;
     if (winner) {
