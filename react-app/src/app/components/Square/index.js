@@ -4,11 +4,13 @@ import PropTypes from 'prop-types';
 
 import './styles.css';
 
-const Square = props => (
-  <button className={'square'} onClick={props.onClick}>
-    {props.value}
-  </button>
-);
+function Square({ value, onClick }) {
+  return (
+    <button className={'square'} onClick={onClick}>
+      {value}
+    </button>
+  );
+}
 
 Square.PropTypes = {
   value: PropTypes.string,
