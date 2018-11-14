@@ -6,7 +6,7 @@ import './styles.css';
 
 function Square({ value, onClick }) {
   return (
-    <button className={'square'} onClick={onClick}>
+    <button className="square" onClick={onClick}>
       {value}
     </button>
   );

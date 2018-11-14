@@ -3,9 +3,8 @@
 /* eslint-disable no-use-before-define */
 import React, { Component } from 'react';
 
-import Board from '../Board';
-
 import calculateWinner from './utils';
+import { Layout, ListItem } from './layout';
 
 import './styles.css';
 
@@ -20,7 +19,9 @@ class Game extends Component {
     const history = this.state.history;
     const current = history[history.length - 1];
     const squares = current.squares.slice();
-    if (calculateWinner(squares) || squares[i]) return;
+    if (calculateWinner(squares) || squares[i]) {
+      return;
+    }
     squares[i] = this.state.xIsNext ? 'X' : 'O';
     this.setState({
       history: history.concat([{ squares }]),
@@ -39,7 +40,6 @@ class Game extends Component {
     const history = this.state.history;
     const current = history[history.length - 1];
     const winner = calculateWinner(current.squares);
-
     let status;
     if (winner) {
       status = `Winner: ${winner}`;
@@ -49,21 +49,10 @@ class Game extends Component {
 
     const moves = history.map((step, move) => {
       const desc = move ? `Go to move # ${move}` : `Go to game start`;
-      return (
-        <li key={move}>
-          <button onClick={() => this.jumpTo(move)}>{desc}</button>
-        </li>
-      );
+      return <ListItem idx={move} desc={desc} onClick={() => this.jumpTo(move)} />;
     });
-
     return (
-      <div className={'game'}>
-        <div className={'game-info'}>
-          <Board squares={current.squares} onClick={i => this.handleClick(i)} />
-          <div>{status}</div>
-          <ol>{moves}</ol>
-        </div>
-      </div>
+      <Layout moves={moves} squares={current.squares} status={status} onClick={i => this.handleClick(i)} />
     );
   }
 }
