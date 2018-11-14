@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import React from 'react';
 import PropTypes from 'prop-types';
 
@@ -12,7 +11,7 @@ function Square({ value, onClick }) {
   );
 }
 
-Square.PropTypes = {
+Square.propTypes = {
   value: PropTypes.string,
   onClick: PropTypes.func
 };

@@ -1,11 +1,10 @@
-/* eslint-disable react/prop-types */
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import Board from '../../components/Board';
 
 import './styles.css';
 
-// eslint-disable-next-line react/prop-types
 export function ListItem({ idx, desc, onClick }) {
   return (
     <li key={idx}>
@@ -25,3 +24,16 @@ export function Layout({ moves, onClick, status, squares }) {
     </div>
   );
 }
+
+ListItem.propTypes = {
+  idx: PropTypes.number,
+  desc: PropTypes.string,
+  onClick: PropTypes.func
+};
+
+Layout.propTypes = {
+  moves: PropTypes.Array,
+  onClick: PropTypes.func,
+  status: PropTypes.string,
+  squares: PropTypes.Array
+};

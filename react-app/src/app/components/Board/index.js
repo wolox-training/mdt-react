@@ -1,11 +1,16 @@
-/* eslint-disable no-use-before-define */
 import React, { Component, Fragment } from 'react';
+import PropTypes from 'prop-types';
 
 import Square from '../Square';
 
 import './styles.css';
 
 class Board extends Component {
+  static propTypes = {
+    squares: PropTypes.Array,
+    onClick: PropTypes.func
+  };
+
   renderSquare = i => <Square value={this.props.squares[i]} onClick={() => this.props.onClick(i)} />;
 
   render() {
