@@ -1,6 +1,3 @@
-/* eslint-disable react/no-array-index-key */
-/* eslint-disable react/jsx-key */
-/* eslint-disable no-use-before-define */
 import React, { Component } from 'react';
 
 import calculateWinner from './utils';
@@ -50,7 +47,7 @@ class Game extends Component {
 
     const moves = history.map((step, move) => {
       const desc = move ? `Go to move # ${move}` : `Go to game start`;
-      return <ListItem idx={move} desc={desc} onClick={() => this.jumpTo(move)} />;
+      return <ListItem key={step.toString()} desc={desc} onClick={() => this.jumpTo(move)} />;
     });
     return (
       <Layout moves={moves} squares={current.squares} status={status} onClick={i => this.handleClick(i)} />

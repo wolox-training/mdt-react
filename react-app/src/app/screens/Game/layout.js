@@ -5,9 +5,9 @@ import Board from '../../components/Board';
 
 import './styles.css';
 
-export function ListItem({ idx, desc, onClick }) {
+export function ListItem({ desc, onClick }) {
   return (
-    <li key={idx}>
+    <li>
       <button onClick={onClick}>{desc}</button>
     </li>
   );
@@ -26,7 +26,6 @@ export function Layout({ moves, onClick, status, squares }) {
 }
 
 ListItem.propTypes = {
-  idx: PropTypes.number,
   desc: PropTypes.string,
   onClick: PropTypes.func
 };
