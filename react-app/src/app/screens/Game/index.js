@@ -1,48 +1,38 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
-import calculateWinner from './utils';
+import ActionCreators from '../../../redux/Game/action';
+
 import { Layout, ListItem } from './layout';
+import calculateWinner from './utils';
 
 import './styles.css';
 
 class Game extends Component {
-  state = {
-    history: [{ squares: Array(9).fill(null) }],
-    xIsNext: true,
-    stepNumber: 0
+  static propTypes = {
+    history: PropTypes.Array,
+    stepNumber: PropTypes.number,
+    xIsNext: PropTypes.bool,
+    makeMove: PropTypes.func.isRequired,
+    jumpTo: PropTypes.func.isRequired
   };
 
-  handleClick(i) {
-    const history = this.state.history.slice(0, this.state.stepNumber + 1);
-    const current = history[history.length - 1];
-    const squares = current.squares.slice();
-    if (calculateWinner(squares) || squares[i]) {
-      return;
-    }
-    squares[i] = this.state.xIsNext ? 'X' : 'O';
-    this.setState({
-      history: history.concat([{ squares }]),
-      stepNumber: history.length,
-      xIsNext: !this.state.xIsNext
-    });
-  }
+  handleClick = i => this.props.makeMove(i);
 
-  jumpTo(step) {
-    this.setState({
-      stepNumber: step,
-      xIsNext: step % 2 === 0
-    });
-  }
+  jumpTo = step => this.props.jumpTo(step);
 
   render() {
-    const history = this.state.history;
-    const current = history[this.state.stepNumber];
+    const history = this.props.history;
+    // debugger; //eslint-disable-line
+    const current = history[this.props.stepNumber];
     const winner = calculateWinner(current.squares);
     let status;
+
     if (winner) {
       status = `Winner: ${winner}`;
     } else {
-      status = `Next player: ${this.state.xIsNext ? 'X' : 'O'}`;
+      status = `Next player: ${this.props.xIsNext ? 'X' : 'O'}`;
     }
 
     const moves = history.map((step, move) => {
@@ -55,4 +45,20 @@ class Game extends Component {
   }
 }
 
-export default Game;
+const mapStateToProps = state => ({
+  history: state.game.history,
+  stepNumber: state.game.stepNumber,
+  xIsNext: state.game.xIsNext
+  /* moves: state.moves,
+  squares: state.squares */
+});
+
+const mapDispatchToProps = dispatch => ({
+  jumpTo: body => dispatch(ActionCreators.jumpTo(body)),
+  makeMove: body => dispatch(ActionCreators.makeMove(body))
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Game);
