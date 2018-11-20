@@ -5,14 +5,6 @@ import Board from '../../components/Board';
 
 import './styles.css';
 
-export function ListItem({ desc, onClick }) {
-  return (
-    <li>
-      <button onClick={onClick}>{desc}</button>
-    </li>
-  );
-}
-
 export function Layout({ moves, onClick, status, squares }) {
   return (
     <div className="game">
@@ -24,11 +16,6 @@ export function Layout({ moves, onClick, status, squares }) {
     </div>
   );
 }
-
-ListItem.propTypes = {
-  desc: PropTypes.string,
-  onClick: PropTypes.func
-};
 
 Layout.propTypes = {
   moves: PropTypes.Array,

@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 
+import { ListItem } from '../../components/ListItem';
+
+import { Layout } from './layout';
 import calculateWinner from './utils';
-import { Layout, ListItem } from './layout';
 
 import './styles.css';
 
