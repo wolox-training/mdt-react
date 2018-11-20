@@ -3,54 +3,74 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import ActionCreators from '../../../redux/Game/action';
+import { ListItem } from '../../components/ListItem';
 
-import { Layout, ListItem } from './layout';
+import { Layout } from './layout';
 import calculateWinner from './utils';
 
 import './styles.css';
 
 class Game extends Component {
-  static propTypes = {
-    history: PropTypes.Array,
-    stepNumber: PropTypes.number,
-    xIsNext: PropTypes.bool,
-    makeMove: PropTypes.func.isRequired,
-    jumpTo: PropTypes.func.isRequired
-  };
-
   handleClick = i => this.props.makeMove(i);
 
   jumpTo = step => this.props.jumpTo(step);
 
+  renderMoves = history =>
+    history.map((step, move) => (
+      <ListItem
+        key={`ListItem.${step.squares}`}
+        desc={move ? `Go to move # ${move}` : `Go to game start`}
+        onClick={() => this.jumpTo(move)}
+      />
+    ));
+
   render() {
-    const history = this.props.history;
-    // debugger; //eslint-disable-line
-    const current = history[this.props.stepNumber];
-    const winner = calculateWinner(current.squares);
-    let status;
+    const { history, squares, status } = this.props;
 
-    if (winner) {
-      status = `Winner: ${winner}`;
-    } else {
-      status = `Next player: ${this.props.xIsNext ? 'X' : 'O'}`;
-    }
-
-    const moves = history.map((step, move) => {
-      const desc = move ? `Go to move # ${move}` : `Go to game start`;
-      return <ListItem key={step.toString()} desc={desc} onClick={() => this.jumpTo(move)} />;
-    });
     return (
-      <Layout moves={moves} squares={current.squares} status={status} onClick={i => this.handleClick(i)} />
+      <Layout
+        moves={this.renderMoves(history)}
+        squares={squares}
+        status={status}
+        onClick={i => this.handleClick(i)}
+      />
     );
   }
 }
 
+Game.propTypes = {
+  history: PropTypes.arrayOf(PropTypes.object),
+  squares: PropTypes.arrayOf(PropTypes.string),
+  status: PropTypes.string,
+  makeMove: PropTypes.func.isRequired,
+  jumpTo: PropTypes.func.isRequired
+};
+
+const getSquares = state => {
+  const current = state.game.history[state.game.stepNumber];
+  return current.squares;
+};
+
+const getStatus = state => {
+  const squares = getSquares(state);
+  const winner = calculateWinner(squares);
+  let status;
+
+  if (winner) {
+    status = `Winner: ${winner}`;
+  } else {
+    status = `Next player: ${state.game.xIsNext ? 'X' : 'O'}`;
+  }
+
+  return status;
+};
+
 const mapStateToProps = state => ({
   history: state.game.history,
+  squares: getSquares(state),
+  status: getStatus(state),
   stepNumber: state.game.stepNumber,
   xIsNext: state.game.xIsNext
-  /* moves: state.moves,
-  squares: state.squares */
 });
 
 const mapDispatchToProps = dispatch => ({
