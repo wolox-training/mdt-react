@@ -1,0 +1,14 @@
+.game {
+  display: flex;
+  flex-direction: row;
+}
+
+.game-info {
+  margin-left: 20px;
+}
+
+.moves {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
