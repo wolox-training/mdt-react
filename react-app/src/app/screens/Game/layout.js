@@ -11,7 +11,7 @@ export function Layout({ moves, onClick, status, squares }) {
       <div className="game-info">
         <Board squares={squares} onClick={onClick} />
         <div>{status}</div>
-        <ol>{moves}</ol>
+        <div className="moves">{moves}</div>
       </div>
     </div>
   );
