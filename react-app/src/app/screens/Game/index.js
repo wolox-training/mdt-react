@@ -65,12 +65,12 @@ const getStatus = state => {
   return status;
 };
 
-const mapStateToProps = state => ({
-  history: state.game.history,
-  squares: getSquares(state),
-  status: getStatus(state),
-  stepNumber: state.game.stepNumber,
-  xIsNext: state.game.xIsNext
+const mapStateToProps = store => ({
+  history: store.game.history,
+  squares: getSquares(store),
+  status: getStatus(store),
+  stepNumber: store.game.stepNumber,
+  xIsNext: store.game.xIsNext
 });
 
 const mapDispatchToProps = dispatch => ({

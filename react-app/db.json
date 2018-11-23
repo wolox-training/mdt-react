@@ -14,5 +14,12 @@
       "year_published": 1889,
       "rating": 4.20
     }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "email": "manuel.tuero@wolox.com.ar",
+      "password": "manu1230"
+    }
   ]
 }

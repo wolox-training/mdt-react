@@ -1,12 +1,14 @@
 import { createStore, applyMiddleware, compose, combineReducers } from 'redux';
 import thunk from 'redux-thunk';
-import { reducer as loginReducer } from 'redux-form';
+import { reducer as formReducer } from 'redux-form';
 
 import game from './Game/reducer';
+import login from './Login/reducer';
 
 const reducers = combineReducers({
   game,
-  form: loginReducer
+  form: formReducer,
+  login
 });
 
 const middlewares = [];

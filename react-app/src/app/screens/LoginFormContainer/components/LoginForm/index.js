@@ -1,36 +1,32 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Field, reduxForm } from 'redux-form';
+import PropTypes from 'prop-types';
 
-import { required, minLength, maxLength } from '../../validation';
+import { required, minLength } from '../../validation';
 
 import { customInput } from './fields';
 import './fields/LoginForm.css';
 
-class LoginForm extends Component {
-  render() {
-    // eslint-disable-next-line react/prop-types
-    const { handleSubmit } = this.props;
+const LoginForm = ({ handleSubmit }) => (
+  <form className="form-container" onSubmit={handleSubmit}>
+    <Field name="email" component={customInput} type="text" label="Email" validate={[required]} />
+    <Field
+      name="password"
+      component={customInput}
+      type="password"
+      label="Password"
+      validate={[required, minLength]}
+    />
+    <button className="button" type="submit">
+      Submit
+    </button>
+  </form>
+);
 
-    return (
-      <form className="form-container" onSubmit={handleSubmit}>
-        <Field name="email" component={customInput} type="text" label="Email" validate={[required]} />
-        <Field
-          name="password"
-          component={customInput}
-          type="password"
-          label="Password"
-          validate={[required, minLength]}
-        />
-        <button className="button" type="submit">
-          Submit
-        </button>
-      </form>
-    );
-  }
-}
+LoginForm.propTypes = {
+  handleSubmit: PropTypes.func.isRequired
+};
 
-LoginForm = reduxForm({
+export default reduxForm({
   form: 'login'
 })(LoginForm);
-
-export default LoginForm;
