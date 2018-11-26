@@ -29,7 +29,6 @@ class Game extends Component {
 
   render() {
     const { history, squares, status } = this.props;
-
     return (
       <GameLayout
         moves={this.renderMoves(history)}

@@ -14,9 +14,7 @@ const ActionCreators = {
       const hist = history.slice(0, stepNumber + 1);
       const current = hist[hist.length - 1];
       const squares = current.squares.slice();
-
       squares[i] = xIsNext ? 'X' : 'O';
-
       dispatch({
         type: actionTypes.MAKE_MOVE,
         payload: {
@@ -42,14 +40,11 @@ const ActionCreators = {
   getStatus(squares, xIsNext) {
     return dispatch => {
       const winner = calculateWinner(squares);
-      const result = winner
-        ? { isWinner: true, status: `Winner: ${winner}` }
-        : { isWinner: false, status: `Next player: ${xIsNext ? 'X' : 'O'}` };
       dispatch({
         type: actionTypes.GET_STATUS,
         payload: {
-          status: result.status,
-          isWinner: result.isWinner
+          status: winner ? `Winner: ${winner}` : `Next player: ${xIsNext ? 'X' : 'O'}`,
+          isWinner: winner
         }
       });
     };
