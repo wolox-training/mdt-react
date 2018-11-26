@@ -15,7 +15,6 @@ const getValidityClassName = meta => {
 
 export const customInput = props => {
   const { label, input, type, meta } = props;
-
   return (
     <div
       className={cx(
@@ -25,7 +24,7 @@ export const customInput = props => {
         getValidityClassName(meta)
       )}
     >
-      <input {...input} type={type} className="input" />
+      <input autoComplete="new-password" {...input} type={type} className="input" />
       <label className="label">{label}</label>
       {meta.error && meta.touched && <div className="error-text">{meta.error}</div>}
     </div>

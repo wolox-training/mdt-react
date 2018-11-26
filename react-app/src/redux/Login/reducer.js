@@ -11,12 +11,12 @@ export default function reducer(state = initialState, action) {
         ...state,
         error: action.payload.error
       };
-    case 'SET_CURRENT_USER':
+    case 'LOGIN_SUCCESS':
       return {
         ...state,
-        currentUser: action.payload.currentUser
+        isLogged: action.payload.isLogged
       };
-    case 'NOTIFY_INVALID_USER':
+    case 'LOGIN_FAILURE':
       return {
         ...state
       };

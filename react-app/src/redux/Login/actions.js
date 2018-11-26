@@ -5,25 +5,22 @@ const ActionCreators = {
   submit(values) {
     return async dispatch => {
       dispatch({ type: 'GET_USERS' });
-
       const response = await UserService.getUsers();
       if (response.ok) {
-        const currentUser = response.data.find(
+        const isLogged = response.data.some(
           user => user.email === values.email && user.password === values.password
         );
-
-        if (currentUser) {
-          localStorage.setItem('email', currentUser.email);
-
+        if (isLogged) {
+          localStorage.setItem('email', values.email);
           dispatch({
-            type: 'SET_CURRENT_USER',
+            type: 'LOGIN_SUCCESS',
             payload: {
-              currentUser
+              isLogged
             }
           });
         } else {
           alert('Invalid user or password.');
-          dispatch({ type: 'NOTIFY_INVALID_USER' });
+          dispatch({ type: 'LOGIN_FAILURE' });
         }
       } else {
         alert(`A server error has occurred: ${response.problem}`);

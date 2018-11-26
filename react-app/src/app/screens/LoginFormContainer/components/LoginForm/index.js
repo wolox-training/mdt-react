@@ -2,14 +2,20 @@ import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 import PropTypes from 'prop-types';
 
-import { required, minLength } from '../../validation';
+import { required, minLength, validateEmail } from '../../validation';
 
 import { customInput } from './fields';
 import './fields/LoginForm.css';
 
 const LoginForm = ({ handleSubmit }) => (
   <form className="form-container" onSubmit={handleSubmit}>
-    <Field name="email" component={customInput} type="text" label="Email" validate={[required]} />
+    <Field
+      name="email"
+      component={customInput}
+      type="text"
+      label="Email"
+      validate={[required, validateEmail]}
+    />
     <Field
       name="password"
       component={customInput}
