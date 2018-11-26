@@ -4,11 +4,13 @@ import { reducer as formReducer } from 'redux-form';
 
 import game from './Game/reducer';
 import login from './Login/reducer';
+import topbar from './Topbar/reducer';
 
 const reducers = combineReducers({
   game,
   form: formReducer,
-  login
+  login,
+  topbar
 });
 
 const middlewares = [];

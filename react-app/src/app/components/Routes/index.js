@@ -9,7 +9,8 @@ import PrivateRoute from './components/PrivateRoute';
 
 const routes = {
   HOME: '/',
-  LOGIN: '/login'
+  LOGIN: '/login',
+  EMPTY: '/empty'
 };
 
 function Routes() {
@@ -17,6 +18,7 @@ function Routes() {
     <Router>
       <Fragment>
         <PrivateRoute path={routes.HOME} component={Game} />
+        <Route path={routes.EMPTY} render={() => <h3>Empty view for the next trello card.</h3>} />
         <Route path={routes.LOGIN} component={Login} />
       </Fragment>
     </Router>

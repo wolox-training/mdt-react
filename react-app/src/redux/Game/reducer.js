@@ -4,7 +4,7 @@ const initialState = {
   stepNumber: 0
 };
 
-export default function reducer(state = initialState, action) {
+function reducer(state = initialState, action) {
   switch (action.type) {
     case 'MAKE_MOVE':
       return {
@@ -19,3 +19,5 @@ export default function reducer(state = initialState, action) {
       return state;
   }
 }
+
+export default reducer;

@@ -1,9 +1,10 @@
-import React, { Component } from 'react';
+import React, { Fragment, Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import ActionCreators from '../../../redux/Game/actions';
 import ListItem from '../../components/ListItem';
+import Topbar from '../../components/Topbar';
 
 import { Layout } from './layout';
 import calculateWinner from './utils';
@@ -28,12 +29,15 @@ class Game extends Component {
     const { history, squares, status } = this.props;
 
     return (
-      <Layout
-        moves={this.renderMoves(history)}
-        squares={squares}
-        status={status}
-        onClick={i => this.handleClick(i)}
-      />
+      <Fragment>
+        <Topbar email={localStorage.getItem('email')} />
+        <Layout
+          moves={this.renderMoves(history)}
+          squares={squares}
+          status={status}
+          onClick={i => this.handleClick(i)}
+        />
+      </Fragment>
     );
   }
 }
