@@ -5,7 +5,7 @@ import Board from '../../components/Board';
 
 import './styles.css';
 
-export default function GameLayout({ moves, onClick, status, squares }) {
+function GameLayout({ moves, onClick, status, squares }) {
   return (
     <div className="game">
       <div className="game-info">
@@ -23,3 +23,5 @@ GameLayout.propTypes = {
   status: PropTypes.string,
   squares: PropTypes.arrayOf(PropTypes.string)
 };
+
+export default GameLayout;
