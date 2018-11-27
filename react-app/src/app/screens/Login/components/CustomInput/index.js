@@ -13,7 +13,7 @@ const getValidityClassName = meta => {
   }
 };
 
-export const customInput = props => {
+function CustomInput(props) {
   const { label, input, type, meta } = props;
   return (
     <div
@@ -29,4 +29,6 @@ export const customInput = props => {
       {meta.error && meta.touched && <div className="error-text">{meta.error}</div>}
     </div>
   );
-};
+}
+
+export default CustomInput;

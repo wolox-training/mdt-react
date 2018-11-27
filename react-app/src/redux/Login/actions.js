@@ -1,5 +1,6 @@
 /* eslint-disable no-alert */
 import UserService from '../../services/UserService';
+import { setStorageItem } from '../../utils';
 
 const ActionCreators = {
   submit(values) {
@@ -11,7 +12,7 @@ const ActionCreators = {
           user => user.email === values.email && user.password === values.password
         );
         if (isLogged) {
-          localStorage.setItem('email', values.email);
+          setStorageItem('email', values.email);
           dispatch({
             type: 'LOGIN_SUCCESS',
             payload: {

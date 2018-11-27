@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 import Game from '../../screens/Game';
-import Login from '../../screens/LoginFormContainer';
+import Login from '../../screens/Login';
 
 import PrivateRoute from './components/PrivateRoute';
 
