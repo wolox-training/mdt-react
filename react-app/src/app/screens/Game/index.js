@@ -1,60 +1,70 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
-import { ListItem } from '../../components/ListItem';
+import ActionCreators from '../../../redux/Game/action';
+import ListItem from '../../components/ListItem';
 
-import { Layout } from './layout';
-import calculateWinner from './utils';
+import GameLayout from './layout';
+import { getSquares } from './utils';
 
 import './styles.css';
 
 class Game extends Component {
-  state = {
-    history: [{ squares: Array(9).fill(null) }],
-    xIsNext: true,
-    stepNumber: 0
+  handleClick = i => {
+    const { isWinner, squares } = this.props;
+    if (!(isWinner || squares[i])) this.props.makeMove(i);
   };
 
-  handleClick(i) {
-    const history = this.state.history.slice(0, this.state.stepNumber + 1);
-    const current = history[history.length - 1];
-    const squares = current.squares.slice();
-    if (calculateWinner(squares) || squares[i]) {
-      return;
-    }
-    squares[i] = this.state.xIsNext ? 'X' : 'O';
-    this.setState({
-      history: history.concat([{ squares }]),
-      stepNumber: history.length,
-      xIsNext: !this.state.xIsNext
-    });
-  }
+  jumpTo = step => this.props.jumpTo(step);
 
-  jumpTo(step) {
-    this.setState({
-      stepNumber: step,
-      xIsNext: step % 2 === 0
-    });
-  }
+  renderMoves = history =>
+    history.map((step, move) => (
+      <ListItem
+        key={`ListItem.${step.squares}`}
+        desc={move ? `Go to move # ${move}` : `Go to game start`}
+        onClick={() => this.jumpTo(move)}
+      />
+    ));
 
   render() {
-    const history = this.state.history;
-    const current = history[this.state.stepNumber];
-    const winner = calculateWinner(current.squares);
-    let status;
-    if (winner) {
-      status = `Winner: ${winner}`;
-    } else {
-      status = `Next player: ${this.state.xIsNext ? 'X' : 'O'}`;
-    }
-
-    const moves = history.map((step, move) => {
-      const desc = move ? `Go to move # ${move}` : `Go to game start`;
-      return <ListItem key={step.toString()} desc={desc} onClick={() => this.jumpTo(move)} />;
-    });
+    const { history, squares, status } = this.props;
     return (
-      <Layout moves={moves} squares={current.squares} status={status} onClick={i => this.handleClick(i)} />
+      <GameLayout
+        moves={this.renderMoves(history)}
+        squares={squares}
+        status={status}
+        onClick={i => this.handleClick(i)}
+      />
     );
   }
 }
 
-export default Game;
+Game.propTypes = {
+  history: PropTypes.arrayOf(PropTypes.object),
+  squares: PropTypes.arrayOf(PropTypes.string),
+  status: PropTypes.string,
+  makeMove: PropTypes.func.isRequired,
+  jumpTo: PropTypes.func.isRequired,
+  isWinner: PropTypes.bool
+};
+
+const mapStateToProps = store => ({
+  history: store.game.history,
+  squares: getSquares(store),
+  status: store.game.status,
+  stepNumber: store.game.stepNumber,
+  xIsNext: store.game.xIsNext,
+  isWinner: store.game.isWinner
+});
+
+const mapDispatchToProps = dispatch => ({
+  jumpTo: stepNumber => dispatch(ActionCreators.jumpTo(stepNumber)),
+  makeMove: index => dispatch(ActionCreators.makeMove(index)),
+  getStatus: () => dispatch(ActionCreators.getStatus())
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Game);
