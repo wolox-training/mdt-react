@@ -5,13 +5,16 @@ import PropTypes from 'prop-types';
 import ActionCreators from '../../../redux/Game/actions';
 import ListItem from '../../components/ListItem';
 
-import { Layout } from './layout';
-import calculateWinner from './utils';
+import GameLayout from './layout';
+import { getSquares } from './utils';
 
 import './styles.css';
 
 class Game extends Component {
-  handleClick = i => this.props.makeMove(i);
+  handleClick = i => {
+    const { isWinner, squares } = this.props;
+    if (!(isWinner || squares[i])) this.props.makeMove(i);
+  };
 
   jumpTo = step => this.props.jumpTo(step);
 
@@ -26,9 +29,8 @@ class Game extends Component {
 
   render() {
     const { history, squares, status } = this.props;
-
     return (
-      <Layout
+      <GameLayout
         moves={this.renderMoves(history)}
         squares={squares}
         status={status}
@@ -43,39 +45,23 @@ Game.propTypes = {
   squares: PropTypes.arrayOf(PropTypes.string),
   status: PropTypes.string,
   makeMove: PropTypes.func.isRequired,
-  jumpTo: PropTypes.func.isRequired
-};
-
-const getSquares = state => {
-  const current = state.game.history[state.game.stepNumber];
-  return current.squares;
-};
-
-const getStatus = state => {
-  const squares = getSquares(state);
-  const winner = calculateWinner(squares);
-  let status;
-
-  if (winner) {
-    status = `Winner: ${winner}`;
-  } else {
-    status = `Next player: ${state.game.xIsNext ? 'X' : 'O'}`;
-  }
-
-  return status;
+  jumpTo: PropTypes.func.isRequired,
+  isWinner: PropTypes.bool
 };
 
 const mapStateToProps = store => ({
   history: store.game.history,
   squares: getSquares(store),
-  status: getStatus(store),
+  status: store.game.status,
   stepNumber: store.game.stepNumber,
-  xIsNext: store.game.xIsNext
+  xIsNext: store.game.xIsNext,
+  isWinner: store.game.isWinner
 });
 
 const mapDispatchToProps = dispatch => ({
-  jumpTo: body => dispatch(ActionCreators.jumpTo(body)),
-  makeMove: body => dispatch(ActionCreators.makeMove(body))
+  jumpTo: stepNumber => dispatch(ActionCreators.jumpTo(stepNumber)),
+  makeMove: index => dispatch(ActionCreators.makeMove(index)),
+  getStatus: () => dispatch(ActionCreators.getStatus())
 });
 
 export default connect(
