@@ -10,8 +10,11 @@
     "react-dom": "^16.6.1",
     "react-redux": "^5.1.1",
     "react-router-dom": "^4.4.0-beta.6",
+    "react-router-redux": "^4.0.8",
     "redux": "^4.0.1",
+    "redux-fetch-middleware": "^4.0.2",
     "redux-form": "^7.4.2",
+    "redux-recompose": "^2.1.0",
     "redux-thunk": "^2.3.0",
     "wolox-react-scripts": "1.2.1"
   },

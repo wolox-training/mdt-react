@@ -1,14 +1,23 @@
 import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
-import { getStorageItem } from '../../../../../utils';
-import Game from '../../../../screens/Game';
+const validateLogin = (Component, isLogged) => (isLogged ? <Component /> : <Redirect to="/login" />);
 
-// TODO: reemplazar el localStorage por el isLogged.... para eso tengo que dispatchear una action en el componentDidMount del login.
-const validateLogin = () => (getStorageItem('email') ? <Game /> : <Redirect to="/login" />);
-
-const PrivateRoute = ({ component: Component, ...rest }) => (
-  <Route exact {...rest} render={() => validateLogin()} />
+const PrivateRoute = ({ path, component, isLogged }) => (
+  <Route exact path={path} render={() => validateLogin(component, isLogged)} />
 );
 
-export default PrivateRoute;
+PrivateRoute.propTypes = {
+  path: PropTypes.string.isRequired,
+  component: PropTypes.element,
+  isLogged: PropTypes.bool.isRequired
+};
+
+const mapStateToProps = store => ({
+  isLogged: store.login.isLogged,
+  store
+});
+
+export default connect(mapStateToProps)(PrivateRoute);

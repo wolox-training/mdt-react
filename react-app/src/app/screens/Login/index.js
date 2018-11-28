@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { Redirect } from 'react-router-dom';
 
 import ActionCreators from '../../../redux/Login/actions';
 
@@ -11,13 +10,12 @@ class Login extends Component {
   submit = values => this.props.submit(values);
 
   render() {
-    return this.props.isLogged ? <Redirect to="/" /> : <Form onSubmit={this.submit} />;
+    return <Form onSubmit={this.submit} />;
   }
 }
 
 Login.propTypes = {
-  submit: PropTypes.func.isRequired,
-  isLogged: PropTypes.bool
+  submit: PropTypes.func.isRequired
 };
 
 const mapStateToProps = store => ({

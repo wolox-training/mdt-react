@@ -30,7 +30,7 @@ class Game extends Component {
 
     return (
       <Fragment>
-        <Topbar email={localStorage.getItem('email')} />
+        <Topbar email={this.props.email} />
         <Layout
           moves={this.renderMoves(history)}
           squares={squares}
@@ -47,7 +47,8 @@ Game.propTypes = {
   squares: PropTypes.arrayOf(PropTypes.string),
   status: PropTypes.string,
   makeMove: PropTypes.func.isRequired,
-  jumpTo: PropTypes.func.isRequired
+  jumpTo: PropTypes.func.isRequired,
+  email: PropTypes.string
 };
 
 const getSquares = state => {
@@ -74,7 +75,8 @@ const mapStateToProps = store => ({
   squares: getSquares(store),
   status: getStatus(store),
   stepNumber: store.game.stepNumber,
-  xIsNext: store.game.xIsNext
+  xIsNext: store.game.xIsNext,
+  email: store.login.email
 });
 
 const mapDispatchToProps = dispatch => ({
