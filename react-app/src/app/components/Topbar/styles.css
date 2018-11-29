@@ -1,0 +1,71 @@
+.topbar {
+  align-items: center;
+  background-color: #2196f3;
+  box-shadow: 0 2px 2px grey;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  height: 70px;
+  position: relative;
+  padding: 0 30px;
+  top: 0;
+  z-index: 1;
+}
+
+.navbar-text {
+  font-size: 12px;
+  height: 30px;
+}
+
+.material-icons.md-36 {
+  font-size: 36px;
+  color: #fafafa;
+}
+
+.material-icons.md-36:hover {
+  position: relative;
+  top: 1px;
+  left: 1px;
+}
+
+.user {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 12px;
+  width: 320px;
+}
+
+.btn {
+  height: inherit;
+  border-left: 1px solid #fff;
+  font: bold normal 18px 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  color: #fafafa;
+  background-color: #E10050;
+  padding: 10px 15px;
+  cursor: pointer;
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 80px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+  position: absolute;
+  z-index: 1;
+  left: -20px;
+  top: 36px;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
