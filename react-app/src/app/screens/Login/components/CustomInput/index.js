@@ -1,12 +1,12 @@
 import React from 'react';
 import cx from 'classnames';
 
-import constants from '../../../../../utils/constants';
+import { VALIDITY } from '../../../../../utils/constants';
 
 const getValidityClassName = meta => {
   if (meta.active) return;
-  if (meta.touched && meta.invalid) return constants.validity.INVALID;
-  if (meta.touched && meta.valid) return constants.validity.VALID;
+  if (meta.touched && meta.invalid) return VALIDITY.INVALID;
+  if (meta.touched && meta.valid) return VALIDITY.VALID;
 };
 
 function CustomInput({ label, input, type, meta }) {

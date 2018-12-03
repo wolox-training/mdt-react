@@ -3,7 +3,7 @@ import { Field, reduxForm } from 'redux-form';
 import PropTypes from 'prop-types';
 
 import { required, minLength, validateEmail } from '../Login/components/CustomInput/utils';
-import constants from '../../../utils/constants';
+import { FORM } from '../../../utils/constants';
 
 import CustomInput from './components/CustomInput';
 import './components/CustomInput/styles.css';
@@ -12,21 +12,21 @@ function Form({ handleSubmit }) {
   return (
     <form className="form-container" onSubmit={handleSubmit}>
       <Field
-        name={constants.form.EMAIL}
+        name={FORM.EMAIL}
         component={CustomInput}
-        type={constants.form.TEXT}
-        label={constants.form.EMAIL}
+        type={FORM.TEXT}
+        label={FORM.EMAIL}
         validate={[required, validateEmail]}
       />
       <Field
-        name={constants.form.PASSWORD}
+        name={FORM.PASSWORD}
         component={CustomInput}
-        type={constants.form.PASSWORD}
-        label={constants.form.PASSWORD}
+        type={FORM.PASSWORD}
+        label={FORM.PASSWORD}
         validate={[required, minLength]}
       />
-      <button className="button" type={constants.form.SUBMIT}>
-        Submit
+      <button className="button" type={FORM.SUBMIT}>
+        {FORM.SUBMIT}
       </button>
     </form>
   );
@@ -37,5 +37,5 @@ Form.propTypes = {
 };
 
 export default reduxForm({
-  form: 'login'
+  form: FORM.LOGIN
 })(Form);

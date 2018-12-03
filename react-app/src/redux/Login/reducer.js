@@ -1,4 +1,4 @@
-import constants from '../../utils/constants';
+import { ACTIONS } from '../../utils/constants';
 
 const initialState = {
   isLogged: false,
@@ -7,16 +7,14 @@ const initialState = {
 
 export default function reducer(state = initialState, action) {
   switch (action.type) {
-    case constants.actions.login.GET_USERS_FAILURE:
-    case constants.actions.login.LOGIN_SUCCESS:
+    case ACTIONS.LOGIN.GET_USERS_FAILURE:
+    case ACTIONS.LOGIN.LOGIN_SUCCESS:
       return {
         ...state,
         isLogged: action.payload.isLogged
       };
-    case constants.actions.login.LOGIN_FAILURE:
-      return {
-        ...state
-      };
+    case ACTIONS.LOGIN.LOGIN_FAILURE:
+      return state;
     default:
       return state;
   }
