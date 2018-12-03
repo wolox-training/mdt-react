@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import ActionCreators from '../../../redux/Game/action';
+import ActionCreators from '../../../redux/Game/actions';
 import ListItem from '../../components/ListItem';
 
 import GameLayout from './layout';

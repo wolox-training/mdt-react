@@ -1,0 +1,103 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins");
+
+.form-container {
+  font-family: "Poppins", sans-serif;
+  max-width: 320px;
+  padding: 30px;
+  margin: auto;
+}
+
+.input {
+  border-width: 0;
+  border-bottom: 1px solid black;
+  border-radius: 0;
+}
+
+.input:not([type="checkbox"]) + .label {
+  transition: all 0.2s;
+}
+
+.input:not([type="checkbox"]) + .label {
+  color: gray;
+  left: 0;
+  top: 0;
+  position: absolute;
+}
+
+.input:not([type="checkbox"]):focus + .label,
+.dirty .input:not([type="checkbox"]) + .label {
+  color: black;
+  font-size: 10px;
+  pointer-events: none;
+  top: -12px;
+}
+
+.input:not([type="checkbox"]):focus {
+  border-bottom: 1.5px solid black;
+}
+
+.input {
+  outline: 0;
+  padding: 0;
+}
+
+.label {
+  font-size: 14px;
+}
+
+.label::first-letter {
+  text-transform: uppercase;
+}
+
+.custom-input-container {
+  position: relative;
+  margin: 0 0 25px 0;
+}
+
+.button[type="submit"] {
+  font-size: 20px;
+  border-radius: 5px;
+  background-color: dodgerblue;
+  color: #fafafa;
+}
+
+.valid input {
+  border-bottom: solid 1.5px green;
+}
+
+.invalid input {
+  border-bottom: solid 1.5px tomato;
+}
+
+.error-text {
+  font-size: 13px;
+  background-color: tomato;
+  color: #fafafa;
+  margin-top: 10px;
+  position: relative;
+  text-align: center;
+  border-radius: 5px;
+}
+
+.error-text::before {
+  content: "";
+  border-color: transparent transparent tomato transparent;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 7px 7px 7px;
+  position: absolute;
+  left: 20px;
+  top: -8px;
+}
+
+.input:not([type="checkbox"]),
+.button[type="submit"] {
+  width: 100%;
+}
+
+.input:-webkit-autofill {
+  -webkit-text-fill-color: black;
+  box-shadow: 0 0 0px 1000px black unset;
+  transition: background-color 5000s ease-in-out 0s;
+}
