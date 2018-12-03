@@ -2,13 +2,16 @@ import { actions } from './actions';
 
 const initialState = {
   isLogged: false,
-  email: null
+  email: null,
+  isLoading: false
 };
 
 export default function reducer(state = initialState, action) {
   switch (action.type) {
     case actions.GET_USERS:
-      return { ...state };
+      return { ...state, isLoading: action.payload.isLoading };
+    case actions.GET_USERS_SUCCESS:
+      return { ...state, isLoading: action.payload.isLoading };
     case actions.GET_USERS_FAILURE:
       return {
         ...state,

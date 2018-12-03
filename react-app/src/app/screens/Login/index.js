@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import ActionCreators from '../../../redux/Login/actions';
+import { withLoading } from '../../hocs';
 
 import Form from './layout';
 
@@ -10,16 +11,19 @@ class Login extends Component {
   submit = values => this.props.submit(values);
 
   render() {
-    return <Form onSubmit={this.submit} />;
+    const FormWithLoading = withLoading(Form);
+    return <FormWithLoading isLoading={this.props.isLoading} onSubmit={this.submit} />;
   }
 }
 
 Login.propTypes = {
-  submit: PropTypes.func.isRequired
+  submit: PropTypes.func.isRequired,
+  isLoading: PropTypes.bool
 };
 
 const mapStateToProps = store => ({
-  isLogged: store.login.isLogged
+  isLogged: store.login.isLogged,
+  isLoading: store.login.isLoading
 });
 
 const mapDispatchToProps = dispatch => ({
