@@ -1,9 +1,10 @@
-import React, { Component } from 'react';
+import React, { Fragment, Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import ActionCreators from '../../../redux/Game/action';
+import ActionCreators from '../../../redux/Game/actions';
 import ListItem from '../../components/ListItem';
+import Topbar from '../../components/Topbar';
 
 import GameLayout from './layout';
 import { getSquares } from './utils';
@@ -28,14 +29,17 @@ class Game extends Component {
     ));
 
   render() {
-    const { history, squares, status } = this.props;
+    const { history, squares, status, email } = this.props;
     return (
-      <GameLayout
-        moves={this.renderMoves(history)}
-        squares={squares}
-        status={status}
-        onClick={i => this.handleClick(i)}
-      />
+      <Fragment>
+        <Topbar email={email} />
+        <GameLayout
+          moves={this.renderMoves(history)}
+          squares={squares}
+          status={status}
+          onClick={i => this.handleClick(i)}
+        />
+      </Fragment>
     );
   }
 }
@@ -46,7 +50,8 @@ Game.propTypes = {
   status: PropTypes.string,
   makeMove: PropTypes.func.isRequired,
   jumpTo: PropTypes.func.isRequired,
-  isWinner: PropTypes.bool
+  isWinner: PropTypes.bool,
+  email: PropTypes.string.isRequired
 };
 
 const mapStateToProps = store => ({
@@ -55,7 +60,7 @@ const mapStateToProps = store => ({
   status: store.game.status,
   stepNumber: store.game.stepNumber,
   xIsNext: store.game.xIsNext,
-  isWinner: store.game.isWinner
+  email: store.login.email
 });
 
 const mapDispatchToProps = dispatch => ({

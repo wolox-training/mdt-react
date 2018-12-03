@@ -1,4 +1,4 @@
-import { actionTypes } from './action';
+import { actionTypes } from './actions';
 
 const initialState = {
   history: [{ squares: Array(9).fill(null) }],
@@ -8,7 +8,7 @@ const initialState = {
   isWinner: false
 };
 
-export default function reducer(state = initialState, action) {
+function reducer(state = initialState, action) {
   switch (action.type) {
     case actionTypes.MAKE_MOVE:
       return {
@@ -25,3 +25,5 @@ export default function reducer(state = initialState, action) {
       return state;
   }
 }
+
+export default reducer;
