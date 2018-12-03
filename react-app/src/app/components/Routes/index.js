@@ -1,23 +1,20 @@
 import React, { Fragment } from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { Router, Route } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
+import { history } from '../../../redux/store';
 import Game from '../../screens/Game';
-import Login from '../../screens/LoginFormContainer';
+import Login from '../../screens/Login';
+import constants from '../../../utils/constants';
 
 import PrivateRoute from './components/PrivateRoute';
 
-const routes = {
-  HOME: '/',
-  LOGIN: '/login'
-};
-
 function Routes() {
   return (
-    <Router>
+    <Router history={history}>
       <Fragment>
-        <PrivateRoute path={routes.HOME} component={Game} />
-        <Route path={routes.LOGIN} component={Login} />
+        <PrivateRoute path={constants.routes.HOME} component={Game} />
+        <Route path={constants.routes.LOGIN} component={Login} />
       </Fragment>
     </Router>
   );

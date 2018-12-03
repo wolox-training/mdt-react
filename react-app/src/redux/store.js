@@ -1,20 +1,28 @@
 import { createStore, applyMiddleware, compose, combineReducers } from 'redux';
 import thunk from 'redux-thunk';
-import { reducer as formReducer } from 'redux-form';
+import { reducer as form } from 'redux-form';
+import { routerMiddleware } from 'react-router-redux';
+import createHistory from 'history/createBrowserHistory';
+import { fetchMiddleware } from 'redux-recompose';
 
 import game from './Game/reducer';
 import login from './Login/reducer';
 
+export const history = createHistory();
+
 const reducers = combineReducers({
   game,
-  form: formReducer,
+  form,
   login
 });
 
-const middlewares = [];
+const middlewares = [routerMiddleware(history), fetchMiddleware];
 const enhancers = [];
 
+/* ------------- Thunk Middleware ------------- */
 middlewares.push(thunk);
+
+middlewares.push(fetchMiddleware);
 
 /* ------------- Assemble Middleware ------------- */
 enhancers.push(applyMiddleware(...middlewares));

@@ -45,6 +45,10 @@
   font-size: 14px;
 }
 
+.label::first-letter {
+  text-transform: uppercase;
+}
+
 .custom-input-container {
   position: relative;
   margin: 0 0 25px 0;

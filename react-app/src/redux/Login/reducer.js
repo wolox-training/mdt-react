@@ -1,22 +1,19 @@
+import constants from '../../utils/constants';
+
 const initialState = {
-  currentUser: {}
+  isLogged: false,
+  email: null
 };
 
 export default function reducer(state = initialState, action) {
   switch (action.type) {
-    case 'GET_USERS':
-      return { ...state };
-    case 'GET_USERS_FAILURE':
-      return {
-        ...state,
-        error: action.payload.error
-      };
-    case 'LOGIN_SUCCESS':
+    case constants.actions.login.GET_USERS_FAILURE:
+    case constants.actions.login.LOGIN_SUCCESS:
       return {
         ...state,
         isLogged: action.payload.isLogged
       };
-    case 'LOGIN_FAILURE':
+    case constants.actions.login.LOGIN_FAILURE:
       return {
         ...state
       };

@@ -1,23 +1,21 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { Redirect } from 'react-router-dom';
 
 import ActionCreators from '../../../redux/Login/actions';
 
-import LoginForm from './components/LoginForm';
+import Form from './layout';
 
-class LoginFormContainer extends Component {
+class Login extends Component {
   submit = values => this.props.submit(values);
 
   render() {
-    return this.props.isLogged ? <Redirect to="/" /> : <LoginForm onSubmit={this.submit} />;
+    return <Form onSubmit={this.submit} />;
   }
 }
 
-LoginFormContainer.propTypes = {
-  submit: PropTypes.func.isRequired,
-  isLogged: PropTypes.bool
+Login.propTypes = {
+  submit: PropTypes.func.isRequired
 };
 
 const mapStateToProps = store => ({
@@ -32,4 +30,4 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(LoginFormContainer);
+)(Login);
